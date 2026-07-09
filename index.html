@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Ujala ❤️</title>
+
     <style>
         * {
             margin: 0;
@@ -69,10 +70,10 @@
         .btn-group {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 30px;
             position: relative;
-            height: 60px;
-            align-items: center;
+            height: 70px;
         }
 
         button {
@@ -88,37 +89,32 @@
         #yesBtn {
             background-color: #ff4d6d;
             color: white;
-            transition: background-color 0.2s, box-shadow 0.2s;
-            z-index: 20; /* Stays in front of the No button */
+            transition: .3s;
+            z-index: 5;
         }
 
         #yesBtn:hover {
             background-color: #ff758f;
-            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+            box-shadow: 0 8px 20px rgba(255,77,109,.4);
         }
 
         #noBtn {
             background-color: #70777a;
             color: white;
-            position: absolute;
-            right: 40px; 
-            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 10; /* Tucks behind the Yes button layer */
+            position: fixed;
+            transition: all .25s ease;
+            z-index: 10;
         }
 
-        /* Success Popup Window */
         .modal {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.6);
+            inset: 0;
+            background: rgba(0,0,0,.6);
             justify-content: center;
             align-items: center;
-            z-index: 100;
             backdrop-filter: blur(5px);
+            z-index: 100;
         }
 
         .modal-content {
@@ -126,133 +122,123 @@
             padding: 50px;
             border-radius: 24px;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
             max-width: 450px;
             width: 90%;
-            animation: popUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: popUp .5s;
         }
 
         .modal-content h2 {
             color: #ff4d6d;
-            font-size: 2.5rem;
             margin-bottom: 20px;
+            font-size: 2.4rem;
         }
 
         .modal-content p {
-            font-size: 1.3rem;
-            color: #444;
+            font-size: 1.2rem;
             line-height: 1.6;
+            color: #444;
         }
 
-        /* Animations */
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0%,100%{transform:scale(1);}
+            50%{transform:scale(1.08);}
         }
 
         @keyframes popUp {
-            from { transform: scale(0.6); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            from{
+                transform:scale(.6);
+                opacity:0;
+            }
+            to{
+                transform:scale(1);
+                opacity:1;
+            }
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(15deg); }
+            0%,100%{transform:translateY(0);}
+            50%{transform:translateY(-20px);}
         }
     </style>
 </head>
+
 <body>
 
-    <div class="bg-heart" style="top: 10%; left: 10%;">💖</div>
-    <div class="bg-heart" style="top: 20%; right: 15%; animation-delay: 2s;">💝</div>
-    <div class="bg-heart" style="bottom: 15%; left: 20%; animation-delay: 4s;">❤️</div>
-    <div class="bg-heart" style="bottom: 25%; right: 10%; animation-delay: 1s;">✨</div>
+<div class="bg-heart" style="top:10%;left:10%;">💖</div>
+<div class="bg-heart" style="top:20%;right:15%;animation-delay:2s;">💝</div>
+<div class="bg-heart" style="bottom:15%;left:20%;animation-delay:4s;">❤️</div>
+<div class="bg-heart" style="bottom:25%;right:10%;animation-delay:1s;">✨</div>
 
-    <div class="container">
-        <div class="sender-tag">From: Ajay</div>
-        <div class="big-heart">💝</div>
-        <h1 id="questionText">Ujala, will you forever be mine? 💕</h1>
-        
-        <div class="btn-group" id="btnGroup">
-            <button id="yesBtn" onclick="showSuccess()">Yes! 💍</button>
-            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No</button>
-        </div>
+<div class="container">
+    <div class="sender-tag">From: Ajay</div>
+
+    <div class="big-heart">💝</div>
+
+    <h1>Ujala, will you forever be mine? 💕</h1>
+
+    <div class="btn-group">
+
+        <button id="yesBtn" onclick="showSuccess()">
+            Yes! 💍
+        </button>
+
+        <button id="noBtn"
+                onmouseover="moveButton()"
+                onclick="moveButton()">
+            No
+        </button>
+
     </div>
+</div>
 
-    <div id="successModal" class="modal">
-        <div class="modal-content">
-            <div style="font-size: 4rem; margin-bottom: 10px;">🥰❤️</div>
-            <h2>Thank You, Ujala!</h2>
-            <p>You have made me the happiest person alive. I promise to always cherish, care for, and love you with all my heart. Forever and always. 💞</p>
-        </div>
+<div class="modal" id="successModal">
+    <div class="modal-content">
+        <div style="font-size:4rem;">🥰❤️</div>
+        <h2>Thank You, Madam ji!</h2>
+        <p>
+            You have made me the happiest person alive.
+            I promise to always cherish, care for,
+            and love you with all my heart.
+            Forever and always. 💞
+        </p>
     </div>
+</div>
 
-    <script>
-        const noBtn = document.getElementById('noBtn');
-        const yesBtn = document.getElementById('yesBtn');
-        
-        let clickCount = 0;
+<script>
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
 
-        function moveButton() {
-            clickCount++;
+let angle = 0;
+const radius = 100;
 
-            // Statically locate the Yes button coordinates
-            const yesRect = yesBtn.getBoundingClientRect();
-            
-            // Calculate coordinates to line up perfectly behind the Yes button
-            const targetX = yesRect.left + (yesRect.width / 2) - (noBtn.offsetWidth / 2);
-            const targetY = yesRect.top + (yesRect.height / 2) - (noBtn.offsetHeight / 2);
+// Place No button initially to the right of Yes
+window.onload = () => {
+    moveButton(true);
+};
 
-            noBtn.style.position = 'fixed';
+function moveButton(first = false) {
 
-            // Click 4: Hide 25% (Pushed downward slightly so 75% of it is visible below Yes)
-            if (clickCount === 4) {
-                noBtn.style.left = targetX + 'px';
-                noBtn.style.top = (targetY + 22) + 'px'; 
-                noBtn.style.opacity = '0.85';
-                return;
-            }
-            
-            // Click 5: Hide 75% (Tucked closely under, only a tiny edge showing)
-            if (clickCount === 5) {
-                noBtn.style.left = targetX + 'px';
-                noBtn.style.top = (targetY + 8) + 'px'; 
-                noBtn.style.opacity = '0.4';
-                return;
-            }
+    if (!first) {
+        // Random movement around the Yes button
+        angle += Math.PI / 3 + Math.random() * 0.8;
+    }
 
-            // Click 6+: Completely hidden right behind Yes and made unclickable
-            if (clickCount >= 6) {
-                noBtn.style.left = targetX + 'px';
-                noBtn.style.top = targetY + 'px';
-                noBtn.style.opacity = '0';
-                noBtn.style.pointerEvents = 'none'; 
-                return;
-            }
+    const yesRect = yesBtn.getBoundingClientRect();
 
-            // Default random jump bounds logic (Clicks 1, 2, 3)
-            const screenWidth = window.innerWidth;
-            const screenHeight = window.innerHeight;
-            const btnWidth = noBtn.offsetWidth;
-            const btnHeight = noBtn.offsetHeight;
-            
-            // Strict boundaries so it stays completely on-screen
-            const safeMargin = 20; 
-            const maxX = screenWidth - btnWidth - safeMargin;
-            const maxY = screenHeight - btnHeight - safeMargin;
+    const centerX = yesRect.left + yesRect.width / 2;
+    const centerY = yesRect.top + yesRect.height / 2;
 
-            // Generate precise screen values within the viewport limits
-            const randomX = Math.floor(Math.random() * (maxX - safeMargin)) + safeMargin;
-            const randomY = Math.floor(Math.random() * (maxY - safeMargin)) + safeMargin;
+    const x = centerX + radius * Math.cos(angle) - noBtn.offsetWidth / 2;
+    const y = centerY + radius * Math.sin(angle) - noBtn.offsetHeight / 2;
 
-            noBtn.style.left = randomX + 'px';
-            noBtn.style.top = randomY + 'px';
-        }
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
 
-        function showSuccess() {
-            document.getElementById('successModal').style.display = 'flex';
-        }
-    </script>
+function showSuccess() {
+    document.getElementById("successModal").style.display = "flex";
+}
+</script>
+
 </body>
 </html>
